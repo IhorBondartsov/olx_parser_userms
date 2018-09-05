@@ -8,11 +8,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/IhorBondartsov/OLX_Parser/userms/cfg"
-	"github.com/IhorBondartsov/OLX_Parser/userms/entities"
+	"github.com/IhorBondartsov/olx_parser_userms/cfg"
+	"github.com/IhorBondartsov/olx_parser_userms/entities"
 
 	"github.com/IhorBondartsov/OLX_Parser/lib/jwtLib"
-	"github.com/IhorBondartsov/OLX_Parser/userms/storage"
+	"github.com/IhorBondartsov/olx_parser_userms/storage"
 	"github.com/powerman/rpc-codec/jsonrpc2"
 	"github.com/sirupsen/logrus"
 	"github.com/go-errors/errors"

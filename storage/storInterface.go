@@ -1,6 +1,6 @@
 package storage
 
-import "github.com/IhorBondartsov/OLX_Parser/userms/entities"
+import "github.com/IhorBondartsov/olx_parser_userms/entities"
 
 type Storage interface {
 	Create(user entities.User) error

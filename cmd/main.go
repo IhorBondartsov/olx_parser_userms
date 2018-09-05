@@ -8,9 +8,9 @@ import (
 	"github.com/jmoiron/sqlx"
 	"github.com/sirupsen/logrus"
 
-	"github.com/IhorBondartsov/OLX_Parser/userms/cfg"
-	"github.com/IhorBondartsov/OLX_Parser/userms/storage/userSQL"
-	"github.com/IhorBondartsov/OLX_Parser/userms/webrpc"
+	"github.com/IhorBondartsov/olx_parser_userms/cfg"
+	"github.com/IhorBondartsov/olx_parser_userms/storage/userSQL"
+	"github.com/IhorBondartsov/olx_parser_userms/webrpc"
 	"time"
 )
 

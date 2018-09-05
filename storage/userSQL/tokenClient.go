@@ -1,7 +1,7 @@
 package userSQL
 
 import (
-	"github.com/IhorBondartsov/OLX_Parser/userms/entities"
+	"github.com/IhorBondartsov/olx_parser_userms/entities"
 	"github.com/jmoiron/sqlx"
 )
 

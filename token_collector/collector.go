@@ -3,8 +3,8 @@ package token_collector
 import (
 	"time"
 
-	"github.com/IhorBondartsov/OLX_Parser/userMS/storage"
-	"github.com/IhorBondartsov/OLX_Parser/userms/entities"
+	"github.com/IhorBondartsov/olx_parser_userms/storage"
+	"github.com/IhorBondartsov/olx_parser_userms/entities"
 
 	"github.com/sirupsen/logrus"
 )
