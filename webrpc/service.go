@@ -10,9 +10,9 @@ import (
 
 	"github.com/IhorBondartsov/olx_parser_userms/cfg"
 	"github.com/IhorBondartsov/olx_parser_userms/entities"
-
 	"github.com/IhorBondartsov/OLX_Parser/lib/jwtLib"
 	"github.com/IhorBondartsov/olx_parser_userms/storage"
+
 	"github.com/powerman/rpc-codec/jsonrpc2"
 	"github.com/sirupsen/logrus"
 	"github.com/go-errors/errors"
@@ -24,26 +24,29 @@ const tokenLength = 256
 var log = logrus.New()
 
 func Start(cfg CfgAPI) {
+	api, err := NewAPI(cfg)
+	if err != nil {
+		log.Panic(err)
+	}
 	// Server export an object of type ExampleSvc.
-	if err := rpc.Register(NewAPI(cfg)); err != nil {
+	if err := rpc.Register(api); err != nil {
 		log.Panic(err)
 	}
 
 	// Server provide a HTTP transport on /rpc endpoint.
 	http.Handle("/rpc", jsonrpc2.HTTPHandler(nil))
-
 }
 
-func NewAPI(cfg CfgAPI) *API {
+func NewAPI(cfg CfgAPI) (*API, error) {
 	atp, err := jwtLib.NewJWTParser(cfg.AccessPublicKey)
 	if err != nil {
 		log.Errorf("Cant create AccessTokenParser. Err %v", err)
-		return nil
+		return nil, err
 	}
 	ats, err := jwtLib.NewJWTSigner(cfg.AccessPrivateKey)
 	if err != nil {
 		log.Errorf("Cant create AccessTokenSigner. Err %v", err)
-		return nil
+		return nil, err
 	}
 	return &API{
 		AccessTokenParser: atp,
@@ -51,7 +54,7 @@ func NewAPI(cfg CfgAPI) *API {
 		UserStor:          cfg.UserStor,
 		RefreshStor:       cfg.RefreshStor,
 		TTLAccessToken:    cfg.TTLAccessToken,
-	}
+	}, nil
 }
 
 type CfgAPI struct {

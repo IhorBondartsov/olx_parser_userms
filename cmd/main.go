@@ -3,15 +3,14 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"github.com/sirupsen/logrus"
-
 	"github.com/IhorBondartsov/olx_parser_userms/cfg"
 	"github.com/IhorBondartsov/olx_parser_userms/storage/userSQL"
 	"github.com/IhorBondartsov/olx_parser_userms/webrpc"
-	"time"
 )
 
 var log = logrus.New()
